@@ -16,7 +16,7 @@ class CustomerController {
 			const response = await userService.create(req.body);
 			res.send(response);
 		} catch (err) {
-			console.log(err);
+			throw new Error(err);
 		}
 	}
 }
