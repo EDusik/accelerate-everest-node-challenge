@@ -12,7 +12,6 @@ class CustomerController {
 
 	async createCustomer(req, res, next) {
 		try {
-			console.log(UserService);
 			const userService = new UserService();
 			const response = await userService.create(req.body);
 			res.send(response);
