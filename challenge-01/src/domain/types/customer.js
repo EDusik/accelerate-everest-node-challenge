@@ -4,7 +4,7 @@ export class Customer {
 	email_confirmation;
 	cpf;
 	cellphone;
-	birth_;
+	birth_date;
 	email_sms;
 	whats_app;
 	country;
