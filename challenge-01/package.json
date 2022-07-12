@@ -2,13 +2,15 @@
 	"name": "desafio-everest",
 	"version": "1.0.0",
 	"scripts": {
-		"start": "nodemon ./src/index.js"
+		"start": "nodemon ./src/index.js",
+		"dev": "DEBUG=challenge-01* nodemon src/index.js"
 	},
 	"main": "index.js",
 	"author": "Eduardo Dusik",
 	"license": "MIT",
 	"dependencies": {
 		"express": "^4.17.3",
+		"joi": "^17.6.0",
 		"nodemon": "^2.0.15"
 	}
 }
