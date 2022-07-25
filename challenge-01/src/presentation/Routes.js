@@ -1,12 +1,13 @@
+const CreateCustomerRouter = require("./routes/CreateCustomerRouter");
+const ListCustomerRouter = require("./routes/ListCustomerRouter");
+
 const { Router } = require("express");
-const schemaValidator = require("./middleware/validators");
 
 const router = Router();
+const createCustomerRouter = CreateCustomerRouter;
+const listCustomerRouter = ListCustomerRouter;
 
-const CustomerController = require("./controllers/CustomerController");
-
-router.get("/", CustomerController.handle);
-router.get("/customers", CustomerController.getCustomers);
-router.post("/customer", schemaValidator(), CustomerController.createCustomer);
+router.use(createCustomerRouter.setup());
+router.use(listCustomerRouter.setup());
 
 module.exports = router;

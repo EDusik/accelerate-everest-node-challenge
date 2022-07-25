@@ -2,10 +2,6 @@ const userMock = require("../../domain/user/mocks/UserMock");
 const UserService = require("../../domain/user/services/CustomerService").default;
 
 class CustomerController {
-	handle(req, res, next) {
-		res.send("Hello World!");
-	}
-
 	getCustomers(req, res, next) {
 		return res.status(200).json(userMock);
 	}
