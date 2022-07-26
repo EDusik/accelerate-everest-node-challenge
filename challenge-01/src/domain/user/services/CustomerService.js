@@ -3,12 +3,9 @@ const CustomerRepository = require("../repositories/CustomerRepositories").defau
 class CustomerService {
 	async create(customer) {
 		const customerRepository = new CustomerRepository();
-		customer;
 
 		try {
-			return await customerRepository.create({
-				...customer,
-			});
+			return await customerRepository.create(customer);
 		} catch (err) {
 			throw new Error(err);
 		}
