@@ -5,6 +5,10 @@ class CustomerRepository {
 		User.push(customer);
 		return User[User.length - 1];
 	}
+
+	list() {
+		return User;
+	}
 }
 
 exports.default = CustomerRepository;
