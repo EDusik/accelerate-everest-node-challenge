@@ -1,8 +1,14 @@
-const userMock = require("../../domain/user/mocks/UserMock");
+const ListCustomerService = require("../../domain/user/services/ListCustomerService").default;
+const listCustomerService = new ListCustomerService();
 
 class ListCustomersController {
-	handle(req, res, next) {
-		return res.status(200).json(userMock);
+	async handle(req, res, next) {
+		try {
+			const response = await listCustomerService.getCustomers();
+			res.status(200).send(response);
+		} catch (err) {
+			next(err);
+		}
 	}
 }
 
