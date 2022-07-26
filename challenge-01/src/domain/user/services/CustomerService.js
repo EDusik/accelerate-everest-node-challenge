@@ -1,9 +1,8 @@
 const CustomerRepository = require("../repositories/CustomerRepositories").default;
+const customerRepository = new CustomerRepository();
 
 class CustomerService {
 	async create(customer) {
-		const customerRepository = new CustomerRepository();
-
 		try {
 			return await customerRepository.create(customer);
 		} catch (err) {

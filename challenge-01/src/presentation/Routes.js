@@ -1,13 +1,13 @@
 const CreateCustomerRouter = require("./routes/CreateCustomerRouter");
-const ListCustomerRouter = require("./routes/ListCustomerRouter");
+const ListCustomersRouter = require("./routes/ListCustomersRouter");
 
 const { Router } = require("express");
 
 const router = Router();
 const createCustomerRouter = CreateCustomerRouter;
-const listCustomerRouter = ListCustomerRouter;
+const listCustomersRouter = ListCustomersRouter;
 
 router.use(createCustomerRouter.setup());
-router.use(listCustomerRouter.setup());
+router.use(listCustomersRouter.setup());
 
 module.exports = router;
