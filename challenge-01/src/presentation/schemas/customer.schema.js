@@ -1,19 +1,20 @@
 const Joi = require("joi");
+const { stringValidation, booleanValidation, numberValidation, emailValidator } = require("./baseValidators");
 
 const customerSchema = Joi.object({
-	full_name: Joi.string().required(),
-	email: Joi.string().required(),
-	email_confirmation: Joi.string().valid(Joi.ref("email")).required(),
-	cpf: Joi.string().required(),
-	cellphone: Joi.string().required(),
-	birth_date: Joi.date().required(),
-	email_sms: Joi.boolean().required(),
-	whats_app: Joi.boolean().required(),
-	country: Joi.string().required(),
-	city: Joi.string().required(),
-	postal_code: Joi.string().required(),
-	address: Joi.string().required(),
-	number: Joi.number().required(),
+	full_name: stringValidation(8, 255),
+	email: emailValidator(false),
+	email_confirmation: emailValidator(true),
+	cpf: stringValidation(11, 14),
+	cellphone: stringValidation(6, 14),
+	birth_date: Joi.date().max("now").required(),
+	email_sms: booleanValidation(),
+	whats_app: booleanValidation(),
+	country: stringValidation(4, 56),
+	city: stringValidation(1, 85),
+	postal_code: stringValidation(8, 9),
+	address: stringValidation(8, 255),
+	number: numberValidation(),
 });
 
 module.exports = customerSchema;
